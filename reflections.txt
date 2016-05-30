@@ -1,13 +1,34 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+
+I used 'terminal-table'. It neatly formats the output in the terminal console into a table.
+
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Feature 1:  Delete multiple indexes
+        I allowed the delete method to accept multiple arguments ( def delete(*args))
+        then refactored the delete method, based on a little stackoverflow reading
+          @items.delete_if.with_index { |_, index| args.include? index +1 }
+        this is iterating through the items array and deleting the item from the array if the index of that item is in the args array
+        we haven't explored the underscore variable, much yet - I'm not sure what it references. It seems to be mainly be used by ruby
+        internally to prohibit duplicate references. I don't use the underscore variable. This seemed to be the
+        most succint solution, if a little mysterious. My other attempts (involving making a copy of either the items), weren't effective.
+
+        usage
+        list.delete(2,3) ... with any number of arguments. will throw errors if any argument is invalid
+
+  b) Feature 2: Change priority of items
+        Events are allowed to change priority to "high", "medium", or "low" only.
+        In appropriate cases errors are thrown:
+            If item is not an event: InvalidItemType
+            If priority is not "high", "medium" or "low": InvalidPriorityValue
+
 
 # REFLECTIONS
 # -------------------------------------------------------
-1. How long did you spend working on this project?
-2. What was the most rewarding challenge you conquered?
-3. What two additional features did you build? Why?
-4. Where do you still have room to grow?
+1. How long did you spend working on this project? 2 days
+2. What was the most rewarding challenge you conquered? create Gemfile and Gemfile.lock
+3. What two additional features did you build? Why? Change prioriy, Delete multiple indexes.  (see above)
+4. Where do you still have room to grow? Learning to find and use the most appropriate gems. Ruby seems
+    to be a very tradesmen-like language. Rather than learning how to code algorithmically, it is more useful
+    to find and use the appropriate gems effectively.
