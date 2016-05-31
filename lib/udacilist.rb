@@ -14,9 +14,9 @@ class UdaciList
     @items.push EventItem.new(description, type, options) if type == "event"
     @items.push LinkItem.new(description, type, options) if type == "link"
   end
-  def delete(*args)\
+  def delete(*args)
     args.each do |index|
-      if ( index > @items.size - 1)
+      if ( index > @items.size )
         raise UdaciListErrors::IndexExceedsListSize, index.to_s +  " is greater than the number of items."
       end
     end
